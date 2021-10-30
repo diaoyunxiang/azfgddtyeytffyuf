@@ -1,0 +1,71 @@
+package main
+import "fmt"
+
+
+type BasicInformation struct {
+	Name string
+}
+
+type Author struct {
+	BasicInformation
+	VIP bool
+	Icon string
+	Signature string
+	Focus string
+}
+type Videos struct{
+	BasicInformation
+	Barrage string
+	play string
+	Author string
+	点赞 string
+	收藏 string
+	投币 string
+	一件三连 string
+}
+type VideoSend struct{
+	AuthorName string
+	VideoName string
+}
+func main () {
+	var Author Author
+	Author.Name ="老师好我叫何同学"
+	Author.Icon =""
+	Author.Focus ="843.8万"
+	Author.VIP = true
+	Author.Signature ="喜欢做贼有意思的视频"
+	var Video1 Videos
+	Video1.Barrage ="2.9万"
+	Video1.Name = "看不见的未来小米透明电视使用体验"
+	Video1.play ="741.8万"
+	Video1.Author ="老师好我叫何同学"
+	var Video2 Videos
+	Video2.Barrage="22.1万"
+	Video2.Name="何同学有多快？5G在日常使用中的真实体验"
+	Video2.play="2749.4万"
+	Video2.Author="老师好我叫何同学"
+
+	a,b:=SendVideo("AuthorName", "VideoName")
+	fmt.Println(a, b)
+
+	printVideo(&Video1)
+	printVideo(&Video2)
+	var AuthorName string
+	var VideoName string
+
+
+
+	fmt.Printf("名字为%s %s",AuthorName,VideoName)
+}
+func printVideo(Video *Videos){
+	fmt.Printf("Name=%s\n",Video.Name)
+	fmt.Printf("Play=%s\n",Video.play)
+	fmt.Printf("Author=%s\n",Video.Author)
+	fmt.Printf("Barrage=%s\n",Video.Barrage)
+}
+func SendVideo (AuthorName, VideoName string) (string,string) {
+
+
+	return AuthorName,VideoName
+
+}

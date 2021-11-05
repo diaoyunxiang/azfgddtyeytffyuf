@@ -1,0 +1,22 @@
+package main
+import (
+	"fmt"
+	"time"
+)
+func print1(name string){
+   for i:=1;i<=100;i++{
+	   time.Sleep(100*time.Millisecond)
+	   fmt.Printf("%d\n",i)
+   }
+}
+func printf2(name string){
+	for i:=1;i<=100;i++{
+		time.Sleep(105*time.Millisecond)
+		fmt.Printf("%d\n",i)
+	}
+}
+func main(){
+	print1("")
+	printf2("")
+}
+

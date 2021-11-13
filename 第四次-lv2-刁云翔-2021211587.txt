@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+func main(){
+	var count int
+	count =1
+	ticker :=time.NewTicker(30*time.Second)
+	for{
+		select{
+		case <-ticker.C:
+			fmt.Printf("芜湖！起飞！\n")
+			count++
+		}
+	}
+	c :=cron.New(cron.Withseconds())
+	spec :="00 00 02 ** ?"
+	c.AddFunc(spec,func(){
+		fmt.Printf("谁能比我卷！")
+	})
+	spec1 :="00 00 06 **?"
+	c.AddFunc(spec1,func(){
+		fmt.Printf("早八算什么，早六才是吾辈应起之时")
+	})
+	c.Start()
+	select {}
+}
+
